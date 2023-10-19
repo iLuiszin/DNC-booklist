@@ -1,4 +1,4 @@
-# DNC-BoardTasks-Back
+# DNC-BookList - Desafio 5
 
 Projeto em NodeJS de uma API de livros feito para a atividade 5 do curso de NodeJS na escola DNC
 
