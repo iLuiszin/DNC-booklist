@@ -11,7 +11,6 @@ const Livros = () => {
 
   async function getLivros() {
     const { data } = await LivrosService.getLivros();
-    console.log(data)
     setLivros(data)
   }
 

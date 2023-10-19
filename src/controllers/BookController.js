@@ -6,7 +6,7 @@ module.exports = class BookController {
     try {
       const { id, titulo, num_paginas, isbn, editora } = req.body
 
-      const bookExists = await Book.findOne({ isbn })
+      const bookExists = await Book.findOne({ id })
 
       if (bookExists) {
         return res.status(400).send('Livro já cadastrado!')
