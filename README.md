@@ -1,6 +1,6 @@
 # DNC-BookList - Desafio 5
 
-Projeto em NodeJS de uma API de livros feito para a atividade 5 do curso de NodeJS na escola DNC
+Projeto em NodeJS e React de um site para consulta e inserção de livros feito para a atividade 5 do curso de NodeJS na escola DNC
 
 ---
 
