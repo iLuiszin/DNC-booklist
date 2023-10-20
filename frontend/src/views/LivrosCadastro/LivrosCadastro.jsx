@@ -8,7 +8,9 @@ const LivrosCadastro = () => {
 
   const [livro, setLivro] = useState([])
 
-  async function createLivro() {
+  async function createLivro(event) {
+    event.preventDefault();
+
     const body = {
       id: Number(livro.id),
       titulo: livro.titulo,
@@ -36,7 +38,7 @@ const LivrosCadastro = () => {
       <div className='livrosCadastro'>
         <h1>Cadastro de Livros</h1>
         <div>
-          <form id="formulario" action='/livros'>
+          <form id="formulario">
             <div className='form-group'>
               <label>Id</label>
               <input type="text" id='id' required onChange={(event) => { setLivro({ ...livro, id: event.target.value }) }} ></input>
