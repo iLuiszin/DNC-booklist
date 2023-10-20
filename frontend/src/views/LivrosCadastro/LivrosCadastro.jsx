@@ -36,7 +36,7 @@ const LivrosCadastro = () => {
       <div className='livrosCadastro'>
         <h1>Cadastro de Livros</h1>
         <div>
-          <form id="formulario">
+          <form id="formulario" action='/livros'>
             <div className='form-group'>
               <label>Id</label>
               <input type="text" id='id' required onChange={(event) => { setLivro({ ...livro, id: event.target.value }) }} ></input>
