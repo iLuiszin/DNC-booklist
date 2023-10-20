@@ -25,7 +25,6 @@ module.exports = class BookController {
   static async listAll(req, res) {
     try {
       const books = await Book.find()
-      console.log(books)
       return res.status(200).json(books)
     } catch (error) {
       console.log(error)

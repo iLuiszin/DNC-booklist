@@ -2,18 +2,23 @@ import { useEffect, useState } from 'react'
 import Header from '../../components/Header/Header'
 import "./index.scss"
 import SubmenuLivros from '../../components/SubmenuLivros/SubmenuLivros'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { LivrosService } from '../../api/LivrosService'
 
 const LivrosEdicao = () => {
   let { livroId } = useParams();
-
   const [livro, setLivro] = useState([])
+
+  const navigate = useNavigate()
 
   async function getLivro() {
     const { data } = await LivrosService.getLivro(livroId);
     setLivro(data)
   }
+
+  const handleSubmit = event => {
+    event.preventDefault();
+  };
 
   async function editLivro() {
     const body = {
@@ -27,6 +32,7 @@ const LivrosEdicao = () => {
       await LivrosService.updateLivro(Number(livro.id), body)
         .then(({ data }) => {
           alert(data.mensagem)
+          navigate('/livros')
         })
         .catch(({ response: { data, status } }) => {
           alert(`${status} - ${data}`)
@@ -46,7 +52,7 @@ const LivrosEdicao = () => {
       <div className='livrosCadastro'>
         <h1>Edição de Livros</h1>
         <div>
-          <form id="formulario">
+          <form id="formulario" onSubmit={handleSubmit}>
             <div className='form-group'>
               <label>Id</label>
               <input type="text" disabled required onChange={(event) => { setLivro({ ...livro, id: event.target.value }) }} value={livro.id || ''}></input>

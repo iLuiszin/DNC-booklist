@@ -3,13 +3,17 @@ import Header from '../../components/Header/Header'
 import "./index.scss"
 import SubmenuLivros from '../../components/SubmenuLivros/SubmenuLivros'
 import { LivrosService } from '../../api/LivrosService'
+import { useNavigate } from 'react-router-dom'
 
 const LivrosCadastro = () => {
-
   const [livro, setLivro] = useState([])
+  const navigate = useNavigate();
 
-  async function createLivro(event) {
+  const handleSubmit = event => {
     event.preventDefault();
+  };
+
+  async function createLivro() {
 
     const body = {
       id: Number(livro.id),
@@ -23,6 +27,7 @@ const LivrosCadastro = () => {
         .then((response) => {
           alert(response.data)
           document.getElementById('formulario').reset
+          navigate('/livros')
         })
         .catch(({ response: { data, status } }) => {
           alert(`${status} - ${data}`)
@@ -38,7 +43,7 @@ const LivrosCadastro = () => {
       <div className='livrosCadastro'>
         <h1>Cadastro de Livros</h1>
         <div>
-          <form id="formulario">
+          <form onSubmit={handleSubmit} id="formulario">
             <div className='form-group'>
               <label>Id</label>
               <input type="text" id='id' required onChange={(event) => { setLivro({ ...livro, id: event.target.value }) }} ></input>
