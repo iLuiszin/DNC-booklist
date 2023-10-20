@@ -6,9 +6,9 @@ Projeto em NodeJS de uma API de livros feito para a atividade 5 do curso de Node
 
 ## Começe por aqui:
 
-Antes de tudo, você precisa ter certeza de que baixou todas as dependências antes de executar este projeto.
+Antes de tudo, você precisa ter certeza de que baixou todas as dependências antes de executar este projeto!
 
-### Dependências
+### Dependênci
 
 - [NodeJS](https://nodejs.org/en/)
 - [NPM](https://www.npmjs.com/)
